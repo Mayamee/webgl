@@ -30,11 +30,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   const vertices = new Float32Array([
     -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5,
   ]);
-  // Типизируем буфер (спросить может тоже куда то во временную память оно помещается)
+  // Типизируем буфер
   gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer);
   // Записываем данные в буфер и говорим подсказку что данные в буфере будут записаны один раз и использованы многократно
   gl.bufferData(gl.ARRAY_BUFFER, vertices, gl.STATIC_DRAW);
-  // Сохраняем ссылку на буферный объект в WebGL в атрибут вершинного шейдера (тут нет явной связки, что то помещается внутрь)
+  // Сохраняем ссылку на буферный объект в WebGL в атрибут вершинного шейдера
   gl.vertexAttribPointer(aPosition, coordsPickCount, gl.FLOAT, false, 0, 0);
   // Разрешаем присваивание в атрибут вершинного шейдера (блокирует перезапись до вызова gl.disableVertexAttribArray(aPosition))
   gl.enableVertexAttribArray(aPosition);
